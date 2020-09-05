@@ -4,9 +4,7 @@ git 'https://github.com/Arunashan93/SpringBootApp.git'
 }
 stage('Compile-test-Package'){
 def mvnHome = tool name: 'maven-3',type: 'maven'
-sh "${mvnHome}/bin/mvn compile"
 sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore=true clean package"
-sh "${mvnHome}/bin/mvn package"
 }
   post {
                 // If Maven was able to run the tests, even if some of the test
